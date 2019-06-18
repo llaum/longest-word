@@ -20,3 +20,8 @@ class TestGame(unittest.TestCase):
         new_game = Game()
         grid = new_game.grid
         self.assertTrue(new_game.is_valid(grid))
+
+    def test_unknown_word_is_invalid(self):
+        new_game = Game()
+        new_game.grid = list('KWIENFUQW') # Force the grid to a test case:
+        self.assertIs(new_game.is_valid('FEUN'), False)
